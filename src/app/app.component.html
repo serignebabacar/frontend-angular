@@ -1,0 +1,51 @@
+<div class="container">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" 
+                 #cle="ngModel" ngModel name="cle" (ngModelChange)="chercherRv(cle.value)"/>
+            </form>
+        </div>
+    </nav>
+    <table class="table table-striped table-inverse table-responsive">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Code RV</th>
+                <th>Description</th>
+                <th>Lieu</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rv of rvs">
+                <td scope="row">{{rv.codeRv}}</td>
+                <td>{{rv.description}}</td>
+                <td>{{rv.lieu}}</td>
+                <td>{{rv.date}}</td>
+                <td> <i class="fa fa-trash" style="color: red;" (click)="supprimer(rv.id)"> </i></td>
+                <td><i class="fa fa-edit" style="color: red;"></i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
